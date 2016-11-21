@@ -6,20 +6,24 @@
  * @ap: va_list to print
  * @c: character flag
  **/
-void pull_print(va_list ap, char c)
+void pull_print(char c, va_list ap)
 {
 	int i;
-	find_flag flags[] ={
+	find_flag flags[] = {
 		{'d', p_int},
 		{'c', p_char},
-		{'f', p_float},
-		{'s', p_string},
-		{NULL, NULL}
-	}
+		/**{'f', p_float},**/
+		{'s', p_string}
+	};
 
-	for (i = 0, i < 4; i++)
+	for (i = 0; i < 4; i++)
 	{
 		if (flags[i].letter == c)
+		{
 			flags[i].prnt(ap);
+			return;
+		}
 	}
+	if (c == '%')
+		_putchar('%');
 }
