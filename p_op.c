@@ -1,5 +1,6 @@
-#ifndef _PRINT_FLAGS_H_
-#define _PRINT_FLAGS_H_
+#include "holberton.h"
+#include <stdarg.h>
+
 /**
  * exponent - x to the power of y
  * @x: base number
@@ -87,37 +88,3 @@ void p_string(va_list ap)
 	for (i = 0; s[i] != '\0'; i++)
 		_putchar(s[i]);
 }
-
-void pull_print(va_list, char *s, unsigned int values)
-{
-	unsigned int i, var;
-	find_flag flags[] ={
-		{'d', p_int},
-		{'c', p_char},
-		{'f', p_float},
-		{'s', p_string}
-	}
-
-
-
-	var = 0;
-	if (s == NULL)
-		return (NULL);
-
-	for (i = 0, s[i] != '\0'; i++)
-	{
-		if (s[i] == '%')
-		{
-
-			i += 1;
-			var++;
-		}
-		else
-			_putchar(s[i]);
-	}
-}
-
-
-
-
-#endif
