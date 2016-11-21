@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdarg.h>
+#include <stdlib.h>
 
 /**
  * exponent - x to the power of y
@@ -17,7 +18,7 @@ int exponent(int x, int y)
 	if (y == 0)
 		return (1);
 
-	return (x * _pow_recursion(x, y - 1));
+	return (x * exponent(x, y - 1));
 }
 
 
@@ -28,7 +29,7 @@ int exponent(int x, int y)
  * Return: nothing
  **/
 
-void print_int(va_list i)
+void p_int(va_list i)
 {
 	int size, digit, number;
 	long counter, sign;
@@ -66,15 +67,14 @@ void print_int(va_list i)
 
 void p_char(va_list i)
 {
-	if (VALUE != NULL)
-		_putchar(va_arg(i, int);
+	_putchar(va_arg(i, int));
 }
-
+/**
 void p_float(va_list i)
 {
-
+	va_arg(i, float);
 }
-
+**/
 void p_string(va_list ap)
 {
 	unsigned int i;
@@ -83,7 +83,7 @@ void p_string(va_list ap)
 	s = va_arg(ap, char *);
 
 	if (s == NULL)
-		return (NULL);
+		return;
 
 	for (i = 0; s[i] != '\0'; i++)
 		_putchar(s[i]);

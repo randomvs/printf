@@ -1,29 +1,33 @@
 #include "holberton.h"
 
-
+/**
+ * _printf - print string as printf
+ * @parameters: number of arguments
+ * Return: void
+ **/
 void _printf(unsigned int parameters, ...)
 {
 	va_list ap;
-	unsigned int i, j;
+	unsigned int i, var_count;
 	char *s;
 
-	j = 0;
 	va_start(ap, parameters);
-	for (i = 0; i < parameters; i ++)
+
+	s = va_arg(ap, char *);
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (i == 0)
-			s = va_arg(ap, char *);
-		while (s[j] != '\0')
+		if (var_count >= parameters)
+			return;
+
+		if (s[i] == '%')
 		{
-			if (s[j] == '%')
-			{
-				pull_print(s[j + 1], XXX);
-				j++;
-			}
-			else
-				_putchar(s[j]);
-			j++;
+			pull_print(s[i + 1], ap);
+			i++;
+			var_count++;
 		}
+		else
+			_putchar(s[i]);
 	}
 	va_end(ap);
 }
