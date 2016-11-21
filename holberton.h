@@ -2,6 +2,7 @@
 
 #ifndef _PRINT_FUNCTION_H_
 #define _PRINT_FUNCTION_H_
+
 int exponent(int x, int y);
 void p_int(int number);
 void p_char();
