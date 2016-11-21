@@ -10,7 +10,7 @@ void p_string();
 
 typedef struct flag
 {
-	char percent;
+	char letter;
 	(*prnt)(va_list);
 } find_flag;
 #endit
