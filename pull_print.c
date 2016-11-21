@@ -19,7 +19,10 @@ void pull_print(char c, va_list ap)
 	for (i = 0; i < 4; i++)
 	{
 		if (flags[i].letter == c)
+		{
 			flags[i].prnt(ap);
+			return;
+		}
 	}
 	if (c == '%')
 		_putchar('%');

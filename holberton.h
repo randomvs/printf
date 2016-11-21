@@ -4,7 +4,7 @@
 
 int _putchar(char);
 void pull_print(char c, va_list ap);
-void _printf(unsigned int parameters, ...);
+void _printf(char *string, unsigned int parameters, ...);
 int exponent(int x, int y);
 void p_int(va_list);
 void p_char(va_list);
