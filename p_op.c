@@ -24,27 +24,29 @@ int exponent(int x, int y)
 
 /**
  * print_number - print an int using only _putchar
- * @number: int to be printed by function
+ * @i: va_list containing number
  *
  * Return: nothing
  **/
 
-void p_int(va_list i)
+int p_int(va_list *i)
 {
-	int size, digit, number;
+	int size, digit, number, result;
 	long counter, sign;
 
-	number = va_arg(i, int);
+	number = va_arg(*i, int);
 	sign = 1;
 	digit = 0;
 	size = 1;
 	counter = number;
+	result = 0;
 
 	if (number < 0)
 	{
 		_putchar('-');
 		sign = -1;
 		counter *= sign;
+		result++;
 	}
 
 	for (; counter >= 10; size++)
@@ -60,14 +62,21 @@ void p_int(va_list i)
 		_putchar(digit + '0');
 		counter = counter % exponent(10, size - 1);
 		size--;
+		result++;
 	}
 	_putchar(counter % 10 + '0');
+	result++;
+	return (result);
 }
 
-
-void p_char(va_list i)
+/**
+ * p_char - pring char
+ * @i: va_list containing char
+ * Return: nothing
+ **/
+int p_char(va_list *i)
 {
-	_putchar(va_arg(i, int));
+	return(_putchar(va_arg(*i, int)));
 }
 /**
 void p_float(va_list i)
@@ -75,16 +84,27 @@ void p_float(va_list i)
 	va_arg(i, float);
 }
 **/
-void p_string(va_list ap)
+
+/**
+ * p_string - pring string
+ * @ap: va_list containing string
+ * Return: nothing
+ **/
+int p_string(va_list *ap)
 {
+	int result;
 	unsigned int i;
 	char *s;
 
-	s = va_arg(ap, char *);
-
+	s = va_arg(*ap, char *);
+	result = 0;
 	if (s == NULL)
-		return;
+		return (0);
 
 	for (i = 0; s[i] != '\0'; i++)
+	{
 		_putchar(s[i]);
+		result++;
+	}
+	return (result);
 }

@@ -3,17 +3,17 @@
 #include <stdarg.h>
 
 int _putchar(char);
-void pull_print(char c, va_list ap);
-void _printf(char *string, unsigned int parameters, ...);
+int pull_print(char c, va_list *ap);
+int _printf(const char *format, ...);
 int exponent(int x, int y);
-void p_int(va_list);
-void p_char(va_list);
-void p_float(va_list);
-void p_string(va_list);
+int p_int(va_list *);
+int p_char(va_list *);
+int p_float(va_list *);
+int p_string(va_list *);
 
 typedef struct flag
 {
 	char letter;
-	void (*prnt)(va_list);
+	int (*prnt)(va_list *);
 } find_flag;
 #endif
