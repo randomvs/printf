@@ -6,15 +6,20 @@
  * pull_print - prints va_list using the correct format
  * @ap: va_list to print
  * @c: character flag
+ * Return: number of chars printed
  **/
 int pull_print(char c, va_list *ap)
 {
 	int i;
 	find_flag flags[] = {
 		{'d', p_int},
+		{'i', p_int},
 		{'c', p_char},
-		/**{'f', p_float},**/
 		{'s', p_string},
+		/**{'b', p_binary},
+		 * {'r', p_rev},
+		 * {'R', ____},
+		**/
 		{'\0', NULL}
 	};
 
@@ -22,13 +27,13 @@ int pull_print(char c, va_list *ap)
 	{
 		if (flags[i].letter == c)
 		{
-			return flags[i].prnt(ap);
+			return (flags[i].prnt(ap));
 		}
 	}
 	if (c == '%')
 	{
 		_putchar('%');
-		return 1;
+		return (1);
 	}
 	return (0);
 }
