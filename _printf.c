@@ -15,14 +15,7 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-<<<<<<< HEAD
-		if (var_count >= parameters) //what is var_count initialized as?
-			return;
-
-		if (string[i] == '%')
-=======
 		if (format[i] == '%')
->>>>>>> 8f286549774ad3b78e465660e4766765150c8070
 		{
 			result += pull_print(format[i + 1], &ap);
 			i++;
