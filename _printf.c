@@ -2,7 +2,7 @@
 
 /**
  * _printf - print string as printf
- * @parameters: number of arguments
+ * @format: number of arguments
  * Return: void
  **/
 int _printf(const char *format, ...)
@@ -10,6 +10,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 	unsigned int i, result;
 
+	result = 0;
 	va_start(ap, format);
 
 	for (i = 0; format[i] != '\0'; i++)
@@ -20,7 +21,10 @@ int _printf(const char *format, ...)
 			i++;
 		}
 		else
+		{
 			_putchar(format[i]);
+			result++;
+		}
 	}
 	va_end(ap);
 	return (result);
