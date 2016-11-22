@@ -5,29 +5,23 @@
  * @parameters: number of arguments
  * Return: void
  **/
-void _printf(char *string, unsigned int parameters, ...)
+int _printf(const char *format, ...)
 {
 	va_list ap;
-	unsigned int i, var_count;
-	/**char *s;**/
+	unsigned int i, result;
 
-	/**va_start(ap, parameters);
+	va_start(ap, format);
 
-	s = va_arg(ap, char *);**/
-
-	for (i = 0; string[i] != '\0'; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (var_count >= parameters)
-			return;
-
-		if (string[i] == '%')
+		if (format[i] == '%')
 		{
-			pull_print(string[i + 1], ap);
+			result += pull_print(format[i + 1], &ap);
 			i++;
-			var_count++;
 		}
 		else
-			_putchar(string[i]);
+			_putchar(format[i]);
 	}
 	va_end(ap);
+	return (result);
 }
