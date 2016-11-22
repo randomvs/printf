@@ -2,6 +2,7 @@
 #define _PRINT_FUNCTION_H_
 #include <stdarg.h>
 
+int _strlen(char *s);
 int _putchar(char);
 int pull_print(char c, va_list *ap);
 int _printf(const char *format, ...);
