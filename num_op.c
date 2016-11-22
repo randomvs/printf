@@ -69,11 +69,11 @@ int p_int(va_list *i)
 
 
 /**
- * binary - convert into to binary
+ * p_bin - convert into to binary
  * @num: number to convert
  * Return: binary conversion
  **/
-unsigned long binary(unsigned int num)
+unsigned int p_bin(int num)
 {
 	unsigned long b_num, i;
 

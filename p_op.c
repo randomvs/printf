@@ -23,8 +23,6 @@ int p_string(va_list *ap)
 	char *s;
 
 	s = va_arg(*ap, char *);
-	if (s == NULL)
-		return (0);
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
@@ -43,6 +41,28 @@ int p_rev(char *s)
 	if (s[1] == '\0')
 		return (_putchar(s[0]));
 
-	p_rev(&s[1]);
-	return (_putchar(s[0]));
+	return (p_rev(&s[1]) + _putchar(s[0]));
+}
+
+/**
+ * p_STRING - print string
+ * @ap: va_list object
+ * Return: length of string printed
+ **/
+int p_STRING(va_list *ap)
+{
+	int i;
+	char *s;
+
+	s = va_arg(*ap, char *);
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if (s[i] < 32 || s[i] >= 127)
+		{
+
+		}
+		else
+			_putchar(s[i]);
+	}
+	return (i);
 }
