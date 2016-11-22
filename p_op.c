@@ -66,6 +66,7 @@ int p_int(va_list *i)
 	}
 	_putchar(counter % 10 + '0');
 	result++;
+	return (result);
 }
 
 /**
@@ -98,7 +99,7 @@ int p_string(va_list *ap)
 	s = va_arg(*ap, char *);
 	result = 0;
 	if (s == NULL)
-		return;
+		return (0);
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
