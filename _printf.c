@@ -17,7 +17,7 @@ void _printf(char *string, unsigned int parameters, ...)
 
 	for (i = 0; string[i] != '\0'; i++)
 	{
-		if (var_count >= parameters)
+		if (var_count >= parameters) //what is var_count initialized as?
 			return;
 
 		if (string[i] == '%')
