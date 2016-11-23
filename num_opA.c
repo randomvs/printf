@@ -70,10 +70,8 @@ int p_int(int number)
  **/
 int p_bin(unsigned int num)
 {
-	if (num == 0)
+	if (num < 2)
 		return (_putchar(num + '0'));
-	else if (num == 1)
-		return (num + '0');
 	else
 		return (p_bin(num / 2) + _putchar(num % 2 + '0'));
 }
