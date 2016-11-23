@@ -17,7 +17,11 @@ int pull_print(char c, va_list *ap)
 		{'c', mkchar},
 		{'s', mkstring},
 		{'b', mkbin},
-		{'S', mkhex},
+		{'S', mkhexstring},
+		{'x', mkhex},
+		{'X', mkhexcap},
+		{'u', mkunsigned},
+		{'o', mkoctal},
 		{'\0', NULL}
 	};
 
@@ -33,6 +37,5 @@ int pull_print(char c, va_list *ap)
 		_putchar('%');
 		return (1);
 	}
-	/*return (_putchar(c));*/
 	return (0);
 }

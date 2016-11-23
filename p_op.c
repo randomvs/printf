@@ -3,22 +3,6 @@
 #include <stdlib.h>
 
 /**
- * p_stringRECURSIVE - pring string
- * @s: string to print
- * Return: nothing
- **/
-int p_stringRECURSIVE(char *s)
-{
-	if (s == '\0')
-		return (0);
-
-	if (s[1] == '\0')
-		return (_putchar(s[0]));
-	else
-		return (_putchar(s[0]) + p_string(&s[1]));
-}
-
-/**
  * p_string - pring string
  * @s: string to print
  * Return: nothing
@@ -48,11 +32,11 @@ int p_rev(char *s)
 }
 
 /**
- * p_hex - print string, print non-printable as hex
+ * p_hexstring - print string, print non-printable as hex
  * @s: string to print
  * Return: length of string printed
  **/
-int p_hex(char *s)
+int p_hexstring(char *s)
 {
 	int i;
 
@@ -62,7 +46,7 @@ int p_hex(char *s)
 		{
 			_putchar('\\');
 			_putchar('x');
-			p_hex(&s[i]);
+			p_hexcap(s[i]);
 		}
 		else
 			_putchar(s[i]);

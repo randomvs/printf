@@ -9,14 +9,22 @@ int exponent(int x, int y);
 int p_bin(unsigned int num);
 int p_int(int);
 int p_string(char *);
-int p_hex(char *);
+int p_hexstring(char *);
 int p_rev(char *s);
+int p_hexcap(unsigned int num);
+int p_octal(unsigned int num);
+int p_uint(unsigned int num);
+int p_hex(unsigned int num);
 
 int mkstring(va_list *);
 int mkchar(va_list *);
 int mkint(va_list *);
 int mkbin(va_list *);
-int mkhex(va_list *ap);
+int mkhex(va_list *);
+int mkhexcap(va_list *);
+int mkoctal(va_list *);
+int mkhexstring(va_list *);
+int mkunsigned(va_list *);
 
 /**
  * struct flag -flag object
