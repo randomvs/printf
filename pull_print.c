@@ -12,13 +12,13 @@ int pull_print(char c, va_list *ap)
 {
 	int i;
 	find_flag flags[] = {
-		{'d', p_int},
-		{'i', p_int},
-		{'c', p_char},
-		{'s', p_string},
-		{'b', p_bin},
-		/** {'r', p_rev},
-		 * {'R', ____},
+		{'d', mkint},
+		{'i', mkint},
+		{'c', mkchar},
+		{'s', mkstring},
+		{'b', mkbin},
+		{'S', mkhex},
+		/** {'R', ____},
 		**/
 		{'\0', NULL}
 	};

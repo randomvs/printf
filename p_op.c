@@ -3,32 +3,19 @@
 #include <stdlib.h>
 
 /**
- * p_char - pring char
- * @i: va_list containing char
- * Return: nothing
- **/
-int p_char(va_list *i)
-{
-	return (_putchar(va_arg(*i, int)));
-}
-
-/**
  * p_string - pring string
- * @ap: va_list containing string
+ * @s: string to print
  * Return: nothing
  **/
-int p_string(va_list *ap)
+int p_string(char *s)
 {
-	unsigned int i;
-	char *s;
+	if (s == '\0')
+		return (0);
 
-	s = va_arg(*ap, char *);
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		_putchar(s[i]);
-	}
-	return (i);
+	if (s[1] == '\0')
+		return (_putchar(s[0]));
+	else
+		return (_putchar(s[0]) + p_string(&s[1]));
 }
 
 /**
@@ -45,21 +32,21 @@ int p_rev(char *s)
 }
 
 /**
- * p_STRING - print string
- * @ap: va_list object
+ * p_hex - print string, print non-printable as hex
+ * @s: string to print
  * Return: length of string printed
  **/
-int p_STRING(va_list *ap)
+int p_hex(char *s)
 {
 	int i;
-	char *s;
 
-	s = va_arg(*ap, char *);
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		if (s[i] < 32 || s[i] >= 127)
 		{
-
+			_putchar('\\');
+			_putchar('x');
+			p_hex(&s[i]);
 		}
 		else
 			_putchar(s[i]);

@@ -8,7 +8,6 @@
  * @y: exponent
  * Description: calcuates x^y
  * Return: x^y
- *
  **/
 int exponent(int x, int y)
 {
@@ -20,19 +19,16 @@ int exponent(int x, int y)
 	return (x * exponent(x, y - 1));
 }
 
-
 /**
  * p_int - print an int using only _putchar
- * @i: va_list containing number
- *
- * Return: nothing
+ * @number: int to print
+ * Return: chars printed
  **/
-int p_int(va_list *i)
+int p_int(int number)
 {
-	int size, digit, number, result;
+	int size, digit, result;
 	long counter, sign;
 
-	number = va_arg(*i, int);
 	sign = 1;
 	digit = 0;
 	size = 1;
@@ -68,26 +64,16 @@ int p_int(va_list *i)
 }
 
 /**
- * binary - convert int to binary and print
+ * p_bin - convert int to binary and print
  * @num: number to convert
  * Return: number of chars printed
  **/
-int binary(unsigned int num)
+int p_bin(unsigned int num)
 {
 	if (num == 0)
 		return (_putchar(num + '0'));
 	else if (num == 1)
 		return (_putchar(num + '0'));
 	else
-		return (binary(num / 2) + _putchar(num % 2 + '0'));
-}
-
-/**
- * p_bin - convert into to binary
- * @ap: va_list to convert to int
- * Return: digits printed
- **/
-int p_bin(va_list *ap)
-{
-	return (binary(va_arg(*ap, unsigned int)));
+		return (p_bin(num / 2) + _putchar(num % 2 + '0'));
 }

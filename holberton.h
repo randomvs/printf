@@ -2,17 +2,21 @@
 #define _PRINT_FUNCTION_H_
 #include <stdarg.h>
 
-int _putchar(char);
-int pull_print(char c, va_list *ap);
 int _printf(const char *format, ...);
+int pull_print(char c, va_list *ap);
+int _putchar(char);
 int exponent(int x, int y);
-int binary(unsigned int num);
-int p_int(va_list *);
-int p_char(va_list *);
-int p_float(va_list *);
-int p_string(va_list *);
+int p_bin(unsigned int num);
+int p_int(int);
+int p_string(char *);
+int p_hex(char *);
 int p_rev(char *s);
-int p_bin(va_list *ap);
+
+int mkstring(va_list *);
+int mkchar(va_list *);
+int mkint(va_list *);
+int mkbin(va_list *);
+int mkhex(va_list *ap);
 
 /**
  * struct flag -flag object
