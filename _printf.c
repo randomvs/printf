@@ -9,6 +9,7 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	unsigned int i, result;
+	char buffer[1024];
 
 	result = 0;
 	va_start(ap, format);
