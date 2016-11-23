@@ -3,11 +3,11 @@
 #include <stdlib.h>
 
 /**
- * p_string - pring string
+ * p_stringRECURSIVE - pring string
  * @s: string to print
  * Return: nothing
  **/
-int p_string(char *s)
+int p_stringRECURSIVE(char *s)
 {
 	if (s == '\0')
 		return (0);
@@ -16,6 +16,22 @@ int p_string(char *s)
 		return (_putchar(s[0]));
 	else
 		return (_putchar(s[0]) + p_string(&s[1]));
+}
+
+/**
+ * p_string - pring string
+ * @s: string to print
+ * Return: nothing
+ **/
+int p_string(char *s)
+{
+	unsigned int i;
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		_putchar(s[i]);
+	}
+	return (i);
 }
 
 /**
