@@ -6,7 +6,7 @@ int _putchar(char);
 int pull_print(char c, va_list *ap);
 int _printf(const char *format, ...);
 int exponent(int x, int y);
-int binary(unsigned num);
+int binary(unsigned int num);
 int p_int(va_list *);
 int p_char(va_list *);
 int p_float(va_list *);

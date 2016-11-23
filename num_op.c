@@ -68,7 +68,7 @@ int p_int(va_list *i)
 }
 
 /**
- * binary - conver int to binary and print
+ * binary - convert int to binary and print
  * @num: number to convert
  * Return: number of chars printed
  **/
@@ -79,7 +79,7 @@ int binary(unsigned int num)
 	else if (num == 1)
 		return (_putchar(num + '0'));
 	else
-	return (binary(num / 2) + _putchar(num % 2 + '0'));
+		return (binary(num / 2) + _putchar(num % 2 + '0'));
 }
 
 /**
