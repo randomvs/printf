@@ -35,5 +35,5 @@ int pull_print(char c, va_list *ap)
 		_putchar('%');
 		return (1);
 	}
-	return (0);
+	return (_putchar(c));
 }
