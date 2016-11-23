@@ -67,24 +67,27 @@ int p_int(va_list *i)
 	return (result);
 }
 
+/**
+ * binary - conver int to binary and print
+ * @num: number to convert
+ * Return: number of chars printed
+ **/
+int binary(unsigned int num)
+{
+	if (num == 0)
+		return (_putchar(num + '0'));
+	else if (num == 1)
+		return (_putchar(num + '0'));
+	else
+	return (binary(num / 2) + _putchar(num % 2 + '0'));
+}
 
 /**
  * p_bin - convert into to binary
- * @num: number to convert
- * Return: binary conversion
+ * @ap: va_list to convert to int
+ * Return: digits printed
  **/
-unsigned int p_bin(int num)
+int p_bin(va_list *ap)
 {
-	unsigned long b_num, i;
-
-	i = 1;
-	b_num = 0;
-
-	while (num)
-	{
-		b_num = b_num + (num % 2) * i;
-		num = num / 2;
-		i = i * 10;
-	}
-	return (b_num);
+	return (binary(va_arg(*ap, unsigned int)));
 }

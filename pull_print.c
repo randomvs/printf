@@ -16,8 +16,8 @@ int pull_print(char c, va_list *ap)
 		{'i', p_int},
 		{'c', p_char},
 		{'s', p_string},
-		/**{'b', p_binary},
-		 * {'r', p_rev},
+		{'b', p_bin},
+		/** {'r', p_rev},
 		 * {'R', ____},
 		**/
 		{'\0', NULL}
