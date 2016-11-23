@@ -46,6 +46,8 @@ int p_hexstring(char *s)
 		{
 			_putchar('\\');
 			_putchar('x');
+			if (s[i] <= 16)
+				_putchar('0');
 			p_hexcap(s[i]);
 		}
 		else
