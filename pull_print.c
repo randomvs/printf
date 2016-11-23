@@ -15,7 +15,7 @@ int pull_print(char c, va_list *ap)
 		{'d', mkint},
 		{'i', mkint},
 		{'c', mkchar},
-		/*{'s', mkstring},*/
+		{'s', mkstring},
 		{'b', mkbin},
 		{'S', mkhex},
 		{'\0', NULL}
