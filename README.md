@@ -1,59 +1,44 @@
-0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life mandatory
+#_printf
 
-Write a function that produces output according to a format.
+Recreate printf from scratch in C
 
-Prototype: int _printf(const char *format, ...);
-Returns: the number of characters printed (excluding the null byte used to end output to strings)
-write output to stdout, the standard output stream
-format is a character string. The format string is composed of zero or more directives. See man 3 printf for more detail. You need to handle the following conversion specifiers:
-c
-s
-%
-You don't have to reproduce the buffer handling of the C library printf function
-You don't have to handle the flag characters
-You don't have to handle field width
-You don't have to handle precision
-You don't have to handle the length modifiers
-Repo:
+##Function
 
-GitHub repository: printf
+The purpose of _printf is to mimic printf from stdio.h.
 
-1. Education is when you read the fine print. Experience is what you get if you don't mandatory
+The prototype we used is "int _printf(const char *format, ...)" where format is
+a string and takes unlimited number of inputs as values. Returns number of chars
+printed.
 
-Handle the following conversion specifiers:
+'%' indicates when an additional value will be input, with the following letter
+acting as a flag:
 
-d
-i
-You don't have to handle the flag characters
-You don't have to handle field width
-You don't have to handle precision
-You don't have to handle the length modifiers
-Repo:
+##Flag   Output
 
-GitHub repository: printf
+%c     char
+%s     string
+%S     string, replace any unprintable chars as \xXXX where XXX is a hex with
+       caps, must be at least two digits
+%d/%i  int
+%o     unsigned int as octal
+%u     unsigned decimal int
+%x     unsigned int as hex with lowercase letters
+%X     unsigned int as hex with uppercase letters
+%b     unsigned int as binary
 
-2. Just because it's in print doesn't mean it's the gospel mandatory
+##Example and output
 
-Create a man page for your function.
+ int main(void)
+ {
+ _printf("%s\nprint a char: %c\nthis is an int: %d\nand an octal: %o\n",
+ "this is a string", 'A', 98, 98);
 
-Repo:
+return (0);
+}
 
-GitHub repository: printf
-File: man_3_printf
+OUTPUT
 
-3. What one has not experienced, one will never understand in print #advanced
-
-Handle the following conversion specifiers:
-
-u
-o
-x
-X
-You don't have to handle the flag characters
-You don't have to handle field width
-You don't have to handle precision
-You don't have to handle the length modifiers
-Repo:
-
-GitHub repository: printf
-
+this is a string
+print a char: A
+this is an int: 98
+and an octal: 142
