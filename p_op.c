@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <unistd.h>
 #include <stdarg.h>
 #include <stdlib.h>
 
@@ -32,26 +33,50 @@ int p_rev(char *s)
 }
 
 /**
- * p_hexstring - print string, print non-printable as hex
+ * p_hexstring - print string, non-printable char expressed as \xHEX
  * @s: string to print
  * Return: length of string printed
  **/
 int p_hexstring(char *s)
 {
-	int i;
+	int i, len;
 
+	len = 0;
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		if (s[i] < 32 || s[i] >= 127)
 		{
-			_putchar('\\');
-			_putchar('x');
+			len += p_string("\\x");
 			if (s[i] < 16)
-				_putchar('0');
-			p_hexcap(s[i]);
+				len += _putchar('0');
+			len += p_hexcap(s[i]);
 		}
 		else
-			_putchar(s[i]);
+			len += _putchar(s[i]);
 	}
-	return (i);
+	return (len);
+}
+/**
+ * buffer - Temporary string to hold all everything to print
+ * @a: character to add to string
+ * @s: pointer to place in current string
+ * Return: On success 1, 0 if string is NULL
+ **/
+int buffer(char a, char *s)
+{
+	if (s == NULL)
+		return (0);
+	s[0] = a;
+	return (1);
+}
+
+/**
+ * _putchar - writes the character c to stdout
+ * @c: the char to print
+ * Return: On success 1
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
 }

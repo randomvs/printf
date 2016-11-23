@@ -4,9 +4,11 @@
 
 int _printf(const char *format, ...);
 int pull_print(char c, va_list *ap);
+
 int _putchar(char);
-int exponent(int x, int y);
+int buffer(char a, char *s);
 int p_bin(unsigned int num);
+int exponent(int x, int y);
 int p_int(int);
 int p_string(char *);
 int p_hexstring(char *);
