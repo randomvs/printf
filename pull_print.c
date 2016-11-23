@@ -18,8 +18,6 @@ int pull_print(char c, va_list *ap)
 		{'s', mkstring},
 		{'b', mkbin},
 		{'S', mkhex},
-		/** {'R', ____},
-		**/
 		{'\0', NULL}
 	};
 
